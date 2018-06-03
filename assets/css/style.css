@@ -1,0 +1,36 @@
+body {
+    background-color: black;
+    height:100%;
+    width:100%;
+}
+
+#container {
+    height: 100%;
+    Width:100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+h1 {
+    color:white;
+}
+
+#quiz {
+    color:yellow;
+    margin-top: 20px;
+    clear: both;
+
+}
+
+.answerOptions {
+    color:pink;
+}
+
+#timer {
+    color:rgb(233, 88, 88);
+}
+
+#time {
+    color:white;
+}
