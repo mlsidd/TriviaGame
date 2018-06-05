@@ -7,67 +7,67 @@ tryAgainButton.style.display = "none";
 
 var questionArray = [
         {
-            question: "No! I'm going to limit myself to doing everything girls do wrong in relationships.  Basically everything we know guys hate.",
+            question: "1.  No! I'm going to limit myself to doing everything girls do wrong in relationships.  Basically everything we know guys hate.",
             a:  "a.  Sleepless in Seattle",
-            b:  "b. ",
-            c:  "c.  ",
+            b:  "b. How to Lose a Guy in 10 Days",
+            c:  "c.  Serendipity",
             d:  "d.  The Ugly Truth",
             answer:  "d"
         },
         {
-            question:  "I guess in this society being male and an asshole makes you worthy of our time.",
+            question:  "2.  I guess in this society being male and an asshole makes you worthy of our time.",
             a:  "a.  10 Things I Hate About You",  
-            b: "b.  ",
-            c:  "c.  ",
+            b: "b.  Runaway Bride",
+            c:  "c.  How to Lose a Guy in 10 Days",
             d:  "d.  Along Came Polly",
             answer: "a"
         },
         {
-            question:  "I came here tonight because when you realize you want to spend the rest of your life with somebody, you want the rest of your life to start as soon as possible.",
-            a: "a.  ",
+            question:  "3.  I came here tonight because when you realize you want to spend the rest of your life with somebody, you want the rest of your life to start as soon as possible.",
+            a: "a.  Runaway Bride",
             b:  "b.  When Harry Met Sally",
             c:  "c.  Sleepless in Seattle",  
-            d: "d.  ",
+            d: "d.  Serendipity",
             answer: "b"
         },
         {
-            question:  "I can treat that jackass like any other faceless groom. That's just what I'm gonna do.  Why? Because he's nothing! Because I love a challenge! And because I am a goddamn professional!",
+            question:  "4.  I can treat that jackass like any other faceless groom. That's just what I'm gonna do.  Why? Because he's nothing! Because I love a challenge! And because I am a goddamn professional!",
             a:  "a.  Wedding Crashers",
             b:  "b.  The Wedding Planner", 
             c:  "c.  Pretty Woman",  
-            d:  "d.  ", 
+            d:  "d.  How to Lose a Guy in 10 Days", 
             answer: "b"
         },
         {
-            question:  "Oh why don't you go back to your double-wide and fry something!  Nobody talks to my mama like that!",
-            a:  "a.  ",
-            b:  "b.  ",
+            question:  "5.  Oh why don't you go back to your double-wide and fry something!  Nobody talks to my mama like that!",
+            a:  "a.  Serendipity",
+            b:  "b.  Runaway Bride",
             c:  "c.  Sweet Home Alabama",
             d:  "d.  Along Came Polly",
             answer: "c"
         },
         {
-            question:  "Marriage is like an unfunny, tense version of 'Everybody Loves Raymond",
+            question:  "6.  Marriage is like an unfunny, tense version of 'Everybody Loves Raymond",
             a:  "a.  Knocked Up",
             b:  "b.  Wedding Crashers",
-            c:  "c.  ",
-            d:  "d.  ",
+            c:  "c.  The Proposal",
+            d:  "d.  Sweet Home Alabama",
             ansewr: "a"
         },
         {
-            question:  "Seriously!? It's like you're photoshopped!",
-            a: "a.  ",
+            question:  "7.  Seriously!? It's like you're photoshopped!",
+            a: "a.  Serendipity",
             b:  "b.  Pretty Woman",
-            c:  "c.  ",
+            c:  "c.  Runaway Bride",
             d:  "d.  Crazy Stupid Love",
             answer: "d"
         },
         {
-            question:  "Is it true that if you don't use it, you lose it?",
+            question:  "8.  Is it true that if you don't use it, you lose it?",
             a: "a. Pretty Woman ",
-            b:  "b.  ",
+            b:  "b.  How to Lose a Guy in 10 Days",
             c:  "c.  The 40 Year Old Virgin  ",
-            d:  "d. ",
+            d:  "d. Serendipity",
             answer: "c"
         }];
 
@@ -78,30 +78,21 @@ function showQuiz(){
     startButton.style.display = "none";
 
 for (var i = 0; i < questionArray.length; i++) {
-    var questionDiv = $("<div>");
+    var questionDiv = $("<div class='question'>");
+    var answerDiv = $("<div id='answers'>");
 
-    questionDiv.append('<p>' + questionArray[i].question + '</p>');
-    questionDiv.append("<input type='radio' class = 'clicker' value='a' name='"+i+"'>" + questionArray[i].a);
-    questionDiv.append("<input type='radio' class = 'clicker' value='b' name='"+i+"'>" + questionArray[i].b);
-    questionDiv.append("<input type='radio' class = 'clicker' value='c' name='"+i+"'>" + questionArray[i].c);
-    questionDiv.append("<input type='radio' class = 'clicker' value='d' name='"+i+"'>" + questionArray[i].d) + "<br id='br'>";
+    questionDiv.append(questionArray[i].question);
+    answerDiv.append("<input type='radio' class = 'clicker' value='a' name='"+i+"'>" + questionArray[i].a);
+    answerDiv.append("<input type='radio' class = 'clicker' value='b' name='"+i+"'>" + questionArray[i].b);
+    answerDiv.append("<input type='radio' class = 'clicker' value='c' name='"+i+"'>" + questionArray[i].c);
+    answerDiv.append("<input type='radio' class = 'clicker' value='d' name='"+i+"'>" + questionArray[i].d) + "<br id='br'>";
+
+    $("input[name='i']:radio").addClass('radioButtons');
+
     $("#quiz").append(questionDiv);
-    function getCheckedValue(radioObj) {
-        if(!radioObj)
-            return "";
-        var radioLength = radioObj.length;
-        if(radioLength == undefined)
-            if(radioObj.checked)
-                return radioObj.value;
-            else
-                return "";
-        for(var i = 0; i < radioLength; i++) {
-            if(radioObj[i].checked) {
-                return radioObj[i].value;
-            }
-        }
-        return "";
-    }
+    $("#quiz").append(answerDiv);
+    
+    
 
 }
 }
@@ -131,7 +122,7 @@ var number = 180;
 
 //display the timer
 
-      $("#timer").html("<h2>" + number + "</h2>");
+      $("#time").html("<h2 id='time'> Seconds Left:  " + number + "</h2>");
 
 //when time is up, clear the interval
 
